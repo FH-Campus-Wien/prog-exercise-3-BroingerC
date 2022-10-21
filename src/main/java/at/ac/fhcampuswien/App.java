@@ -44,4 +44,27 @@ public class App {
         if (line % 7 != 0){
             System.out.println();}
     }
+
+    public static long [] lcg(long seed){
+
+        seed = 12345;
+        long[] randomNumbers = new long[10];
+
+        randomNumbers[0] = seed;
+
+        for (int i = 1; i < 10; i++){
+            randomNumbers[i] = nextRandomNumber(randomNumbers[i - 1]);
+        }
+        return randomNumbers;
+    }
+
+    public static long nextRandomNumber(long seed){
+        long a = 1103515245;
+        long c = 12345;
+        long m = 2147483648L;
+
+        return ((a * seed) + c) % m;
+    }
+
+
 }
